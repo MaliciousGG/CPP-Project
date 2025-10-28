@@ -5,7 +5,8 @@
 #include <vector>
 #include <memory>
 #include <cstdint>
-
+#include <map>
+#include <iostream>
 
 using FString = std::string;
 using FName = std::string;
@@ -36,4 +37,39 @@ using TSharedPtr = std::shared_ptr<T>;
 template<typename T>
 using TUniquePtr = std::unique_ptr<T>;
 
-#endif
+// Input function
+inline FString FetchInput() {
+    FString input;
+    std::getline(std::cin, input);
+    return input;
+}
+
+inline FString FetchInput(const FString& prompt) {
+    std::cout << prompt;
+    return FetchInput();
+}
+
+// Template for other types
+template<typename T>
+inline T FetchValue() {
+    T value;
+    std::cin >> value;
+    std::cin.ignore(); // Clear newline
+    return value;
+}
+
+template<typename T>
+inline T FetchValue(const FString& prompt) {
+    std::cout << prompt;
+    return FetchValue<T>();
+}
+
+// Output functions
+inline void Display(const FString& message) {
+    std::cout << message << std::endl;
+}
+
+inline void DisplayError(const FString& message) {
+    std::cerr << message << std::endl;
+}
+#endif // TYPES_H

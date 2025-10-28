@@ -1,6 +1,10 @@
-#include <iostream>
+#include "Utils/Logger.h"
+#include "Core/Character.h"
+#include <Utils/Types.h>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    Log::Print(ELogLevel::Info, "Game Started");
+
+    Character Character;
+    return 0;   
 }

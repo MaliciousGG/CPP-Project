@@ -3,4 +3,19 @@ project(CPP-Project)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(main main.cpp)
+# Organize sources
+set(SOURCES
+    main.cpp
+    src/Utils/Logger.cpp
+)
+
+# Organize headers
+set(HEADERS
+    include/Utils/Logger.h
+)
+
+# Add include directories
+include_directories(include)
+
+# Create executable
+add_executable(main ${SOURCES} ${HEADERS})
